@@ -43,16 +43,15 @@ Programovatelné automaty (PLC)
 
 2. **PLC vs. Embedded PLC a další řídicí jednotky:**
    - Jaký je zásadní rozdíl mezi standardním průmyslovým PLC v krabičce na DIN lištu a tzv. **Embedded PLC**? Co obecně vyjadřuje pojem *embedded* a v jakých dalších typech zařízení se s ním setkáváme?
-     - *Vaše vysvětlení:* `...`
-
+     - *Vaše vysvětlení:* `Standardní PLC je odolný průmyslový automat montovaný obvykle na DIN lištu do rozvaděče, který lze rozšiřovat o vstupy a výstupy pro řízení strojů a výrobních linek, zatímco Embedded PLC je menší řídicí jednotka zabudovaná přímo do zařízení, například kompresoru, tepelného čerpadla nebo kávovaru, přizpůsobená konkrétní aplikaci a obvykle s menšími možnostmi rozšíření.`
    - Doplňte do přehledové tabulky význam zkratek a oblast jejich nasazení:
 
 | Zkratka      | Co zkratka znamená (anglicky / česky) | Pro jakou oblast řízení se primárně využívá                        | Typický operační / řídicí systém                 |
 | :----------- | :------------------------------------ | :----------------------------------------------------------------- | :----------------------------------------------- |
 | **iPC**      | Industrial PC / Průmyslové PC         | Vizualizace SCADA, řízení rozsáhlých technologických uzlů, SoftPLC | Průmyslový OS (Windows IoT Enterprise, Linux RT) |
-| **NC / CNC** | `...`                                 | `...`                                                              | `...`                                            |
-| **MCU**      | `...`                                 | `...`                                                              | `...` *(bare-metal bez OS nebo RTOS)*            |
-| **SoC**      | System on a chip                      | `...`                                                              | `...`                                            |
+| **NC / CNC** | `Numerical Control / Computer Numerical Control – numerické / počítačové numerické řízení`  | `Obráběcí stroje, CNC frézky, soustruhy, roboty a přesné řízení pohybu os`   | `Řídicí systém CNC, například Siemens SINUMERIK nebo FANUC` |
+| **MCU**      | `Microcontroller Unit / mikrokontrolér`    | `Vestavěné systémy, jednoduché regulace, měření, senzory a řízení elektroniky`    | `Bare-metal (bez operačního systému) nebo RTOS, například FreeRTOS`|
+| **SoC**      | System on a chip                      | `Komplexní vestavěná zařízení, chytrá zařízení, průmyslové terminály a zpracování obrazu`    | `Embedded Linux, Android nebo RTOS podle použití`  |
 
 > :key: **Vysvětlení pojmů a odborné zdroje:**
 > - **PLC (Programmable Logic Controller):** Průmyslový mikropočítačový systém určený pro deterministické řízení technologických procesů v reálném čase. Vyznačuje se vysokou odolností proti rušení, modulární koncepcí a cyklickým vykonáváním programu.
@@ -68,7 +67,7 @@ Programovatelné automaty (PLC)
 Proč programátor v prostředí pro PLC (např. Teco Mosaic) nesmí ve standardní programové smyčce použít nekonečný blokující cyklus (nekonečná smyčka/infinite loop, např. `WHILE True DO ...`), se kterým se lze setkat u programování desktopových aplikací na PC a programování MCU? Jaký interní bezpečnostní mechanismus procesoru PLC by v takovém případě zasáhl?
 
 *Vaše odpověď:*
-`...`
+`Program PLC se vykonává v opakujících se cyklech, ve kterých zpracovává vstupy, provádí program a aktualizuje výstupy. Pokud se program zasekne v nekonečné smyčce, nemusí cyklus dokončit a PLC nemusí správně reagovat na změny vstupů. V takovém případě může zasáhnout watchdog (hlídací časovač), který hlídá dobu vykonávání programu a při překročení limitu vyvolá chybu nebo restart řídicí jednotky. Bezpečný stav stroje však musí být zajištěn také vhodnými bezpečnostními prvky.`
 
 ---
 
