@@ -146,7 +146,7 @@ Prostudujte vnitřní blokové uspořádání programovatelného automatu na ní
 V jakých jednotkách udává norma **ČSN EN 60529** odolnost proti vniknutí pevných těles a kapalin (kód IP) a jaké minimální krytí musí mít centrální jednotka PLC určená pro montáž na DIN lištu do rozváděče (např. Tecomat Foxtrot v provedení IP20) ve srovnání s decentralizovaným senzorem na venkovním potrubí? Ověřte i správnost označení normy.
 
 *Vaše odpověď:*
-`ČSN EN 60529 – Stupně ochrany krytem (IP kód). Krytí se neudává v jednotkách, ale kódem IP. Pro PLC v rozvaděči na DIN lištu je typické IP20: ochrana proti dotyku prstem a pevným tělesům ≥ 12,5 mm, bez ochrany proti vodě. Pro venkovní senzor se podle prostředí volí např. IP65 nebo IP67`
+`Stupně ochrany krytem (IP kód). Krytí se neudává v jednotkách, ale kódem IP. Pro PLC v rozvaděči na DIN lištu je typické IP20: ochrana proti dotyku prstem a pevným tělesům ≥ 12,5 mm, bez ochrany proti vodě. Pro venkovní senzor se podle prostředí volí např. IP65 nebo IP67`
 
 ---
 
