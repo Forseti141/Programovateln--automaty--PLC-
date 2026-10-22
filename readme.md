@@ -125,7 +125,7 @@ Prostudujte vnitřní blokové uspořádání programovatelného automatu na ní
 | Název sběrnice                         | Typická fyzická vrstva / kabeláž                        | K čemu sběrnice slouží                                | Maximální dosah / zakončení (terminace)                      |
 | :------------------------------------- | :------------------------------------------------------ | :---------------------------------------------------- | :----------------------------------------------------------- |
 | **TCL2** *(Teco Communication Line 2)* | RS-485, stíněný kroucený pár (např. kabel SYKFY, PCEHY) | Připojení rychlých periferních modulů na DIN lištu    | Až stovek metrů; na obou koncích zakončovací odpor cca 120 Ω |
-| **CIB** *(Common Installation Bus)*    | `...`                                                   | `...`                                                 | `...`                                                        |
+| **CIB** *(Common Installation Bus)*    | `Dvouvodičová sběrnice, nestíněný kroucený pár; přenáší data i napájení připojených prvků`      | `Připojení decentralizovaných vstupních a výstupních modulů, snímačů a akčních členů v automatizaci budov`              | `Dosah závisí na topologii, průřezu vodičů, napájení a zatížení; obvykle stovky metrů. Zakončení se řídí pravidly systému CIB a konkrétní instalací`                                                        |
 | **Ethernet (ETH)**                     | 100Base-TX, konektor RJ45 (kabel UTP/STP Cat 5e/6)      | `...` *(programování Mosaic, Web server, Modbus TCP)* | Max. 100 m na segment                                        |
 
 > :key: **Vysvětlení pojmů a odborné zdroje:**
@@ -146,7 +146,7 @@ Prostudujte vnitřní blokové uspořádání programovatelného automatu na ní
 V jakých jednotkách udává norma **ČSN EN 60529** odolnost proti vniknutí pevných těles a kapalin (kód IP) a jaké minimální krytí musí mít centrální jednotka PLC určená pro montáž na DIN lištu do rozváděče (např. Tecomat Foxtrot v provedení IP20) ve srovnání s decentralizovaným senzorem na venkovním potrubí? Ověřte i správnost označení normy.
 
 *Vaše odpověď:*
-`...`
+`ČSN EN 60529 – Stupně ochrany krytem (IP kód). Krytí se neudává v jednotkách, ale kódem IP. Pro PLC v rozvaděči na DIN lištu je typické IP20: ochrana proti dotyku prstem a pevným tělesům ≥ 12,5 mm, bez ochrany proti vodě. Pro venkovní senzor se podle prostředí volí např. IP65 nebo IP67`
 
 ---
 
