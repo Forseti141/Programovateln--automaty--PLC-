@@ -196,13 +196,13 @@ Jste v roli projektanta automatizačních systémů. Zákazník požaduje navrhn
 
 3. **Proudová bilance a dimenzování napájecího zdroje 24 V DC:**
    - Vypočtěte proudovou spotřebu sestavy na hladině 24 V DC:
-     - Vlastní příkon CPU a rozšiřujících modulů (dle datasheetů Teco): `...` W / 24 V = `...` A
-     - Odběr napájených snímačů DI (23 snímačů × cca 10 mA): `...` A
-     - Odběr zátěží na tranzistorových výstupech se soudobostí $k_s = 0{,}7$: `...` A
-     - **Celkový špičkový proud:** `...` A
+     - Vlastní příkon CPU a rozšiřujících modulů (dle datasheetů Teco): `17` W / 24 V = `0,708` A
+     - Odběr napájených snímačů DI (23 snímačů × cca 10 mA): `0,23` A
+     - Odběr zátěží na tranzistorových výstupech se soudobostí $k_s = 0{,}7$: `2,1` A
+     - **Celkový špičkový proud:** `3,04` A
      - Jaký napájecí zdroj 24 V DC z nabídky Teco / Mean Well zvolíte (včetně doporučené rezervy 25 %)?
-       - *Zvolený zdroj a jmenovitý proud:* `...`
-    - Navrhněte alternativu tohoto zdroje od jiného výrobce: `...`
+       - *Zvolený zdroj a jmenovitý proud:* `HDR-150-24(6,25A)`
+    - Navrhněte alternativu tohoto zdroje od jiného výrobce: `Mean Well SDR-120-24(5A`
 
 > **Kritéria hodnocení úlohy 3 (bodování na známky):**
 > - :bangbang: **Správnost technického výběru a kompatibilita systému Teco (40 %):** Všechny zvolené moduly existují v portfoliu Teco a.s., jsou vzájemně kompatibilní (sběrnice TCL2/CIB) a plně pokrývají zadané signály včetně specifických požadavků (odporové měření PT100/Pt1000, 4–20 mA a rychlé výstupy PWM).
@@ -226,7 +226,10 @@ Jste v roli projektanta automatizačních systémů. Zákazník požaduje navrhn
 Jaký je princip zapojení odporového snímače teploty (např. Pt1000) a proč je pro přesné měření na velké vzdálenosti vhodnější použít snímač Pt1000 než Pt100, pokud máme k dispozici pouze standardní 2vodičové vedení?
 
 *Vaše odpověď:*
-`...`
+`Odporové snímače teploty fungují na principu změny elektrického odporu v závislosti na teplotě.
+Pt100 má při teplotě 0 °C odpor 100 Ω.
+Pt1000 má při teplotě 0 °C odpor 1000 Ω.
+Při dvouvodičovém zapojení vedou dva vodiče současně napájecí i měřicí proud. Odpor přívodních vodičů se proto přičítá k odporu samotného snímače a způsobuje chybu měření.`
 
 ---
 
