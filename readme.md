@@ -178,21 +178,21 @@ Jste v roli projektanta automatizačních systémů. Zákazník požaduje navrhn
 
 | Pozice | Typ modulu / komponenta                     | Přesné typové označení Teco           | Objednací číslo (Part No.) | Pokryté vstupy a výstupy (DI / DO / AI / PWM / relé) |
 | :----- | :------------------------------------------ | :------------------------------------ | :------------------------- | :--------------------------------------------------- |
-| **1**  | Spínaný napájecí zdroj 24 V DC na DIN lištu | `...` *(např. PS2-60/27)*             | `...`                      | Napájení centrály a senzorů 24 V DC                  |
-| **2**  | Centrální jednotka (CPU)                    | `...` *(např. CP-2007 nebo CP-2005)*  | `...`                      | `...`                                                |
-| **3**  | Rozšiřující modul 1 (sběrnice TCL2)         | `...` *(např. IB-1301)*               | `...`                      | `...`                                                |
-| **4**  | Rozšiřující modul 2 (sběrnice TCL2)         | `...` *(např. OS-1401)*               | `...`                      | `...`                                                |
-| **5**  | Případný další submodul / zakončení         | `...` *(např. zakončovací člen TCL2)* | `...`                      | `...`                                                |
+| **1**  | Spínaný napájecí zdroj 24 V DC na DIN lištu | `HDR-150-24` *(např. PS2-60/27)*             | `8020103856`                      | Napájení centrály a senzorů 24 V DC                  |
+| **2**  | Centrální jednotka (CPU)                    | `CP-2007.11NDNN` *(např. CP-2007 nebo CP-2005)*  | `TXN 120 07.11NDNN`                      | `12 AI/DI, 2 AI/AO, 11 RO, 2 AO/PWM`                                                |
+| **3**  | Rozšiřující modul 1 (sběrnice TCL2)         | `IB-1301` *(např. IB-1301)*               | `TXN 113 01`                      | `12 × DI 24 V DC`                                                |
+| **4**  | Rozšiřující modul 2 (sběrnice TCL2)         | `IB-1301(2.pro dosažení kapacity)` *(např. OS-1401)*               | `TXN 113 01`                      | `12 × DI 24 V DC`                                                |
+| **5**  | Případný další submodul / zakončení         | `OS-1401` *(např. zakončovací člen TCL2)* | `TXN 114 01`                      | `12 × DO 24 V DC`                                                |
 
 2. **Vyhodnocení I/O bilance a projektové rezervy:**
    - Doplňte počty a vypočítejte výslednou rezervu pro budoucí rozšíření linky:
 
 | Typ signálu | Požadavek linky | Celková kapacita navržené sestavy Teco | Rezerva (počet volných svorek) | Výsledná rezerva v % |
 | :--- | :--- | :--- | :--- | :--- |
-| **Digitální vstupy (DI)** | 23 | `...` | `...` | `... %` |
-| **Analogové vstupy (AI: 4–20mA, PT)**| 7 | `...` | `...` | `... %` |
-| **Tranzistorové výstupy (DO tranzistor + PWM)** | 6 (4 PWM + 2 DO)| `...` | `...` | `... %` |
-| **Reléové výstupy (DO relé 230 V)**| 3 | `...` | `...` | `... %` |
+| **Digitální vstupy (DI)** | 23 | `31` | `8` | `34,8 %` |
+| **Analogové vstupy (AI: 4–20mA, PT)**| 7 | `14` | `7` | `100 %` |
+| **Tranzistorové výstupy (DO tranzistor + PWM)** | 6 (4 PWM + 2 DO)| `12` | `6` | `100 %` |
+| **Reléové výstupy (DO relé 230 V)**| 3 | `11` | `8` | `266,7  %` |
 
 3. **Proudová bilance a dimenzování napájecího zdroje 24 V DC:**
    - Vypočtěte proudovou spotřebu sestavy na hladině 24 V DC:
