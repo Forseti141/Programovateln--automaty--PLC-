@@ -256,10 +256,10 @@ Jste v roli servisního inženýra na lince řízené automatem **Tecomat Foxtro
 | Signalizační prvek na PLC | Stav (barva / svit)     | Provozní význam (co stav znamená pro servisního technika)   |
 | :------------------------ | :---------------------- | :---------------------------------------------------------- |
 | **RUN**                   | Zelená, trvale svítí    | Uživatelský program v PLC běží v normálním cyklickém režimu |
-| **HALT / STOP**           | Žlutá / oranžová, svítí | `...`                                                       |
-| **ERR / FAULT**           | Červená, bliká          | `...`                                                       |
-| **ERR / FAULT**           | Červená, trvale svítí   | `...`                                                       |
-| **ETH (Link/Act)**        | Zelená/žlutá, bliká     | `...`                                                       |
+| **HALT / STOP**           | Žlutá / oranžová, svítí | `PLC je zastaveno, uživatelský program se nevykonává`                                                       |
+| **ERR / FAULT**           | Červená, bliká          | `Signalizuje chybový stav PLC; přesný význam je nutné ověřit v diagnostice Mosaic`                                                       |
+| **ERR / FAULT**           | Červená, trvale svítí   | `Signalizuje závažnou chybu PLC, která může způsobit zastavení programu`                                                       |
+| **ETH (Link/Act)**        | Zelená/žlutá, bliká     | `Probíhá ethernetová komunikace, přenos dat mezi zařízeními.`                                                       |
 
 2. **Troubleshooting v elektrickém zapojení pomocí digitálního multimetru:**
    - Upevněte na DIN lištu PLC a podle parametrů (viz technický list) vyberte vhodný zdroj napájení.
