@@ -268,7 +268,7 @@ Jste v roli servisního inženýra na lince řízené automatem **Tecomat Foxtro
      - **A. Detekce tvrdého zkratu mezi svorkami +24 V DC a 0 V (GND) před zapnutím jističe:**
        - *Postup:* `nejdřív bych vzal multimetr a dal do + a 0 a tim bych zjistil jestli je tam zkrat nebo ne` *(pozor: zařízení musí být zcela bez napětí, měření impedance/kontinuity)*
      - **B. Ověření spečených kontaktů výstupního relé DO při vypnutém napájení řízení:**
-       - *Postup:* `...`
+       - *Postup:* `zkusil bych změřit jaky je tam odpor když 0 tak je to sepnuty a nejspíš spečeny když vysoky tak je rozpojeny a bude fungovat asi`
      - **C. Diagnostika napájecího zdroje a napájení PLC (ověření správného napětí 24 V DC):**
 	   - *Postup:* `...` *(zařízení pod napětím, měření stejnosměrného napětí – hroty na svorkách zdroje / PLC napájení +24 V a 0 V, vhodný rozsah DC napětí, kontrola ripple/stability)*
 	- **D. Diagnostika vstupů a výstupů PLC (ověření napětí / kontinuity na DI/DO):**
