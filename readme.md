@@ -313,7 +313,7 @@ Měření síťového napětí 230 V AC smí provádět pouze osoba s odpovídaj
 Co se stane v řídicím systému Tecomat Foxtrot, pokud na sběrnici TCL2 omylem nastavíte dvěma různým periferním modulům stejnou hardwarovou adresu (např. otočným přepínačem adresy), a jak tuto kolizi indikuje centrální jednotka v diagnostice?
 
 *Vaše odpověď:*
-`...`
+`Dva moduly mají stejnú adresu, takže centrální jednotka neví, který z nich je který. Může dojít k problémům s komunikací a PLC tuto chybu zaznamená v diagnostice`
 
 ---
 
