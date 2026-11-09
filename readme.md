@@ -283,12 +283,13 @@ Měření síťového napětí 230 V AC smí provádět pouze osoba s odpovídaj
 3. **Diagnostika v programovacím prostředí Teco Mosaic:**
    - K jakému diagnostickému účelu slouží níže uvedené nástroje prostředí Mosaic a jaká jsou jejich bezpečnostní rizika:
      - **Nástroj Watch / Sledování proměnných (Inspektor):**
-       - *Účel:* `...`
+       - *Účel:* `Watch je jako kontrolní okno, ve kterém vidíme, co se právě děje uvnitř PLC, aniž bychom museli zasahovat do programu,
+         Bezpečnostní riziko:Samotné sledování je bezpečné, protože hodnoty pouze zobrazujeme a neměníme. Musíme si ale dát pozor, abychom omylem nezměnili nějakou hodnotu`
      - **Funkce Force (Vnucení hodnoty vstupu / výstupu):**
-       - *Co přesně funkce provede:* `...`
-       - :warning: **Provozní a bezpečnostní riziko funkce Force:** Proč je použití funkce Force během ostrého provozu s přítomností lidské obsluhy zakázáno? `...`
+       - *Co přesně funkce provede:* `Force znamená, že PLC donutíme použít hodnotu, kterou jsme sami nastavili, místo běžné hodnoty.`
+       - :warning: **Provozní a bezpečnostní riziko funkce Force:** Proč je použití funkce Force během ostrého provozu s přítomností lidské obsluhy zakázáno? `Můžeme omylem spustit něco, co se normálně spustit nemá, a někoho tím ohrozit.`
      - **Systémový diagnostický log (Chybový protokol PLC v Mosaicu):**
-       - *Jaké informace v něm technik vyčte:* `...` *(např. restart CPU, výpadek sběrnice TCL2, chyba dělení nulou)*
+       - *Jaké informace v něm technik vyčte:* `Je to jako historie chyb v počítači. PLC si zapisuje, co se pokazilo, a technik se pak může podívat, proč zařízení přestalo fungovat` *(např. restart CPU, výpadek sběrnice TCL2, chyba dělení nulou)*
 
 > **Kritéria hodnocení úlohy 4 (bodování na známky):**
 > - :bangbang: **Odborná správnost interpretace stavů a hlášení PLC (30 %):** Bezchybné vysvětlení indikace LED (RUN, HALT, ERR) a práce s diagnostickým hlášením v prostředí Mosaic.
