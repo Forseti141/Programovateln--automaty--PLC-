@@ -398,7 +398,50 @@ END_PROGRAM
 
    - *Váš doplněný kód v ST:*
 ```pascal
-// Vložte váš kompletní program:
+// Vložte váš kompletní program:PROGRAM Prg_CerpStation
+VAR
+    di_HladinaDolni  : BOOL; // NC plovák – spodní hladina
+    di_HladinaPump   : BOOL; // NO plovák – zapínací hladina
+    di_HladinaHavar  : BOOL; // NO plovák – havarijní přepad
+    di_Porucha       : BOOL; // NC termistor – 1 = bez poruchy
+    btn_Reset        : BOOL; // Ruční reset alarmu
+
+    do_Cerpadlo      : BOOL; // Výstup čerpadla
+    do_Alarm         : BOOL; // Výstup alarmu
+
+    b_HavarieDetekce : BOOL; // RETAIN – zapamatování havárie
+    b_Start          : BOOL; // Podmínka spuštění čerpadla
+
+    timer_TOF        : TOF;  // Zpoždění vypnutí 10 sekund
+END_VAR
+
+// 1. Reset havarijního příznaku operátorem
+IF btn_Reset AND NOT di_HladinaHavar AND di_Porucha THEN
+    b_HavarieDetekce := FALSE;
+END_IF;
+
+// 2. Detekce havarijního přepadu nebo poruchy motoru
+IF di_HladinaHavar OR NOT di_Porucha THEN
+    b_HavarieDetekce := TRUE;
+END_IF;
+
+// 3. Podmínka pro spuštění čerpadla
+b_Start := di_HladinaDolni
+           AND di_HladinaPump
+           AND di_Porucha;
+
+// 4. Časovač TOF – zpoždění vypnutí 10 sekund
+timer_TOF(IN := b_Start, PT := T#10s);
+
+// Výstup čerpadla – okamžité bezpečnostní vypnutí
+do_Cerpadlo := timer_TOF.Q
+               AND di_HladinaDolni
+               AND di_Porucha;
+
+// 5. Aktivace alarmu
+do_Alarm := b_HavarieDetekce;
+
+END_PROGRAM
 ...
 ```
 
