@@ -398,49 +398,67 @@ END_PROGRAM
 
    - *Váš doplněný kód v ST:*
 ```pascal
-// Vložte váš kompletní program:PROGRAM Prg_CerpStation
+// Vložte váš kompletní program:
+PROGRAM Prg_CerpStation
+
 VAR
-    di_HladinaDolni  : BOOL; // NC plovák – spodní hladina
+
+    di_HladinaDolni  : BOOL; // NC plovák – spodní hladina (log.1 = OK)
+
     di_HladinaPump   : BOOL; // NO plovák – zapínací hladina
+
     di_HladinaHavar  : BOOL; // NO plovák – havarijní přepad
-    di_Porucha       : BOOL; // NC termistor – 1 = bez poruchy
-    btn_Reset        : BOOL; // Ruční reset alarmu
 
-    do_Cerpadlo      : BOOL; // Výstup čerpadla
-    do_Alarm         : BOOL; // Výstup alarmu
+    di_Porucha       : BOOL; // NC termistor (log.1 = bez poruchy)
 
-    b_HavarieDetekce : BOOL; // RETAIN – zapamatování havárie
-    b_Start          : BOOL; // Podmínka spuštění čerpadla
+    btn_Reset        : BOOL; // Ruční reset alarmu operátorem
 
-    timer_TOF        : TOF;  // Zpoždění vypnutí 10 sekund
+    do_Cerpadlo      : BOOL; // Výstup stykače čerpadla
+
+    do_Alarm         : BOOL; // Výstup majáku / sirény
+ 
+    b_PozadavekStart : BOOL; // Pomocná: splněné podmínky pro start
+
+    timer_TOF        : TOF;  // Zpoždění vypnutí čerpadla (10 s)
+
 END_VAR
+ 
+VAR RETAIN
 
-// 1. Reset havarijního příznaku operátorem
-IF btn_Reset AND NOT di_HladinaHavar AND di_Porucha THEN
+    b_HavarieDetekce : BOOL; // Příznak havárie přepadu (přežije výpadek napájení)
+
+END_VAR
+ 
+// 1. Reset havarijního příznaku operátorem (jen pokud přepad již není aktivní):
+
+IF btn_Reset AND NOT di_HladinaHavar THEN
+
     b_HavarieDetekce := FALSE;
-END_IF;
 
-// 2. Detekce havarijního přepadu nebo poruchy motoru
-IF di_HladinaHavar OR NOT di_Porucha THEN
+END_IF;
+ 
+// 2. Detekce havarijního přepadu (nastavení má přednost před resetem v dalším průchodu):
+
+IF di_HladinaHavar THEN
+
     b_HavarieDetekce := TRUE;
+
 END_IF;
+ 
+// 3. Podmínka pro spuštění čerpadla (všechny podmínky splněny):
 
-// 3. Podmínka pro spuštění čerpadla
-b_Start := di_HladinaDolni
-           AND di_HladinaPump
-           AND di_Porucha;
+b_PozadavekStart := di_HladinaPump AND di_HladinaDolni AND di_Porucha;
+ 
+// 4. Řízení výstupu čerpadla přes časovač TOF (zpoždění vypnutí 10 s):
 
-// 4. Časovač TOF – zpoždění vypnutí 10 sekund
-timer_TOF(IN := b_Start, PT := T#10s);
+timer_TOF(IN := b_PozadavekStart, PT := T#10s);
 
-// Výstup čerpadla – okamžité bezpečnostní vypnutí
-do_Cerpadlo := timer_TOF.Q
-               AND di_HladinaDolni
-               AND di_Porucha;
+do_Cerpadlo := timer_TOF.Q AND di_HladinaDolni AND di_Porucha;
+ 
+// 5. Aktivace alarmu (přepad – trvale do resetu; porucha motoru – po dobu poruchy):
 
-// 5. Aktivace alarmu
-do_Alarm := b_HavarieDetekce;
-
+do_Alarm := b_HavarieDetekce OR NOT di_Porucha;
+ 
 END_PROGRAM
 ...
 ```
