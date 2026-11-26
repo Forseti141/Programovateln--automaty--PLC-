@@ -409,11 +409,11 @@ VAR
     //do_Cerpadlo      : BOOL; // Výstup stykače čerpadla
     //do_Alarm         : BOOL; // Výstup majáku / sirény
 
-    b_PozadavekStart : BOOL; // Pomocná: splněné podmínky pro start
+    //b_PozadavekStart : BOOL; // Pomocná: splněné podmínky pro start
     timer_TOF        : TOF;  // Zpoždění vypnutí čerpadla (10 s)
 END_VAR
 VAR RETAIN
-    b_HavarieDetekce : BOOL; // Příznak havárie přepadu (přežije výpadek napájení)
+    //b_HavarieDetekce : BOOL; // Příznak havárie přepadu (přežije výpadek napájení)
 END_VAR
 
 
