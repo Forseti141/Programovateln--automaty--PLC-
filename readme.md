@@ -350,11 +350,11 @@ Naprogramujte a simulujte v prostředí Teco Mosaic řízení jednoduché **čer
 
    | Krok | Co v Mosaicu nastavit / zkontrolovat | Proč je tento krok nutný |
    | :--- | :--- | :--- |
-   | **1. Volba cílové platformy** | V HW konfiguraci zvolit centrální jednotku, např. `...` *(např. CP-2007)* | Simulátor musí znát počet a typy I/O svorek |
-   | **2. Aktivace simulátoru** | V menu `...` přepnout komunikaci z „Ethernet / přímé spojení" na `...` | Bez aktivace simulátoru by Mosaic hledal fyzické PLC na síti |
-   | **3. Přiřazení proměnných k I/O svorkám** | V záložce `...` přiřadit proměnnou `di_HladinaDolni` na svorku `...` | Propojuje proměnnou v programu s fyzickým (nebo simulovaným) vstupem |
-   | **4. Spuštění simulace** | Kliknout na tlačítko `...` nebo stisknout klávesovou zkratku `...` | Spustí cyklický běh programu v simulátoru (náhrada za fyzické PLC) |
-   | **5. Sledování proměnných** | Otevřít okno `...` a přidat proměnné `do_Cerpadlo`, `stav`, `timer_TOF` | Umožní sledovat aktuální hodnoty proměnných v každém cyklu |
+   | **1. Volba cílové platformy** | V HW konfiguraci zvolit centrální jednotku, např. `CP-2007` *(např. CP-2007)* | Simulátor musí znát počet a typy I/O svorek |
+   | **2. Aktivace simulátoru** | V menu `mosaic` přepnout komunikaci z „Ethernet / přímé spojení" na `Simulátor PLC` | Bez aktivace simulátoru by Mosaic hledal fyzické PLC na síti |
+   | **3. Přiřazení proměnných k I/O svorkám** | V záložce `I/O konfigurace` přiřadit proměnnou `di_HladinaDolni` na svorku `např.DI0` | Propojuje proměnnou v programu s fyzickým (nebo simulovaným) vstupem |
+   | **4. Spuštění simulace** | Kliknout na tlačítko `Připojit k simulátoru` nebo stisknout klávesovou zkratku `RUN` | Spustí cyklický běh programu v simulátoru (náhrada za fyzické PLC) |
+   | **5. Sledování proměnných** | Otevřít okno `watch` a přidat proměnné `do_Cerpadlo`, `stav`, `timer_TOF` | Umožní sledovat aktuální hodnoty proměnných v každém cyklu |
 
 2. **Implementace řídicího algoritmu v jazyce ST:**
 
